@@ -1,0 +1,31 @@
+.products-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.products-header h2 { font-size: 1.6rem; font-weight: 800; }
+.products-header select {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+.loading, .no-products {
+  text-align: center;
+  padding: 80px;
+  color: #666;
+  font-size: 1.1rem;
+}
