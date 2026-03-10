@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: process.env.REACT_APP_API_URL || 'https://soulcart.onrender.com/api',
 });
 
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('access');
+  const token = localStorage.getItem('token');
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Token ${token}`;
   }
   return config;
 });
@@ -26,4 +26,4 @@ export const removeFromCart = (data) => API.delete('/cart/remove/', { data });
 export const clearCart = () => API.delete('/cart/clear/');
 
 export const getOrders = () => API.get('/orders/');
-export const createOrder = (data) => API.post('/orders/', data);
+export const createOrder = (data) => API.post('/orders/', data); 
