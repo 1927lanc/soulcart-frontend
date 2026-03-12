@@ -7,11 +7,17 @@ function ProductCard({ product }) {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
+  const getImageUrl = (image) => {
+    if (!image) return null;
+    if (image.startsWith('http')) return image;
+    return `https://res.cloudinary.com/dojgfqln3/image/upload/${image}`;
+  };
+
   return (
     <div className="product-card" onClick={() => navigate(`/products/${product.slug}`)}>
       <div className="product-image-wrap">
         {product.image
-          ? <img src={`https://soulcart.onrender.com${product.image}`} alt={product.name} />
+          ? <img src={getImageUrl(product.image)} alt={product.name} />
           : <div className="no-image">No Image</div>
         }
         {product.discount_percent > 0 && (
