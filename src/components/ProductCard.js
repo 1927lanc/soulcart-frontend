@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import './ProductCard.css';
@@ -11,7 +11,7 @@ function ProductCard({ product }) {
     <div className="product-card" onClick={() => navigate(`/products/${product.slug}`)}>
       <div className="product-image-wrap">
         {product.image
-          ? <img src={`http://127.0.0.1:8000${product.image}`} alt={product.name} />
+          ? <img src={`https://soulcart.onrender.com${product.image}`} alt={product.name} />
           : <div className="no-image">No Image</div>
         }
         {product.discount_percent > 0 && (
