@@ -13,7 +13,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/categories/')
+    axios.get('https://soulcart.onrender.com/api/categories/')
       .then(res => setCategories(res.data))
       .catch(err => console.log(err));
   }, []);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
@@ -18,7 +18,7 @@ function Products() {
 
   useEffect(() => {
     setLoading(true);
-    let url = 'http://127.0.0.1:8000/api/products/?';
+    let url = 'https://soulcart.onrender.com/api/products/?';
     if (category) url += `category=${category}&`;
     if (search) url += `search=${search}&`;
     if (sort) url += `sort=${sort}`;
