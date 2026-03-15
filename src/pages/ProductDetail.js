@@ -38,7 +38,7 @@ function ProductDetail() {
   const navigate = useNavigate();
 
   const fetchProduct = () => {
-    axios.get(`http://127.0.0.1:8000/api/products/${slug}/`)
+    axios.get(`https://soulcart.onrender.com/api/products/${slug}/`)
       .then(res => { setProduct(res.data); setLoading(false); })
       .catch(() => { setLoading(false); navigate('/products'); });
   };
@@ -53,7 +53,7 @@ function ProductDetail() {
 
   const handleWishlist = async () => {
     if (!user) { navigate('/login'); return; }
-    await axios.post('http://127.0.0.1:8000/api/users/wishlist/',
+    await axios.post('https://soulcart.onrender.com/api/users/wishlist/',
       { product_id: product.id },
       { headers: { Authorization: `Token ${token}` } }
     );
@@ -65,7 +65,7 @@ function ProductDetail() {
     if (!rating) { setReviewMsg('Please select a rating!'); return; }
     setSubmitting(true);
     try {
-      await axios.post(`http://127.0.0.1:8000/api/products/${slug}/review/`,
+       await axios.post(`https://soulcart.onrender.com/api/products/${slug}/review/`,
         { rating, comment },
         { headers: { Authorization: `Token ${token}` } }
       );
@@ -91,7 +91,7 @@ function ProductDetail() {
       <div className="pd-layout">
         <div className="pd-image-section">
           {product.image ? (
-            <img src={`http://127.0.0.1:8000${product.image}`} alt={product.name} className="pd-main-image" />
+             <img src={product.image} alt={product.name} className="pd-main-image" />
           ) : (
             <div className="pd-no-image">No Image Available</div>
           )}
