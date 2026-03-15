@@ -15,7 +15,7 @@ export function CartProvider({ children }) {
   const fetchCart = async () => {
     if (!token) return;
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/cart/', { headers });
+      const res = await axios.get('https://soulcart.onrender.com/api/cart/', { headers });
       setCartItems(res.data.items);
       setCartCount(res.data.item_count);
       setCartTotal(res.data.total);
@@ -34,7 +34,7 @@ export function CartProvider({ children }) {
       return;
     }
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/cart/',
+      const res = await axios.post('https://soulcart.onrender.com/api/cart/',
         { product_id: product.id, quantity: 1 },
         { headers }
       );
@@ -48,7 +48,7 @@ export function CartProvider({ children }) {
 
   const removeFromCart = async (itemId) => {
     try {
-      const res = await axios.delete('http://127.0.0.1:8000/api/cart/',
+      const res = await axios.delete('https://soulcart.onrender.com/api/cart/',
         { headers, data: { item_id: itemId } }
       );
       setCartItems(res.data.items);
@@ -62,7 +62,7 @@ export function CartProvider({ children }) {
   const updateQuantity = async (itemId, quantity) => {
     try {
       const res = await axios.patch(
-        `http://127.0.0.1:8000/api/cart/update/${itemId}/`,
+        `https://soulcart.onrender.com/api/cart/update/${itemId}/`,
         { quantity },
         { headers }
       );

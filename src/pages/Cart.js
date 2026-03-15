@@ -25,7 +25,7 @@ function Cart() {
             <div className="cart-item" key={item.id}>
               <div className="cart-item-image">
                 {item.product.image
-                  ? <img src={`http://127.0.0.1:8000${item.product.image}`} alt={item.product.name} />
+                  ? <img src={`https://soulcart.onrender.com${item.product.image}`} alt={item.product.name} />
                   : <div className="no-img">No Image</div>
                 }
               </div>

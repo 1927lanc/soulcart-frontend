@@ -11,10 +11,10 @@ function Home() {
   const [accessories, setAccessories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/products/').then(res => setFeatured(res.data.slice(0, 8)));
-    axios.get('http://127.0.0.1:8000/api/products/?category=t-shirts').then(res => setTshirts(res.data.slice(0, 4)));
-    axios.get('http://127.0.0.1:8000/api/products/?category=sneakers').then(res => setSneakers(res.data.slice(0, 4)));
-    axios.get('http://127.0.0.1:8000/api/products/?category=accessories').then(res => setAccessories(res.data.slice(0, 4)));
+    axios.get('https://soulcart.onrender.com/api/products/').then(res => setFeatured(res.data.slice(0, 8)));
+    axios.get('https://soulcart.onrender.com/api/products/?category=t-shirts').then(res => setTshirts(res.data.slice(0, 4)));
+    axios.get('https://soulcart.onrender.com/api/products/?category=sneakers').then(res => setSneakers(res.data.slice(0, 4)));
+    axios.get('https://soulcart.onrender.com/api/products/?category=accessories').then(res => setAccessories(res.data.slice(0, 4)));
   }, []);
 
   return (

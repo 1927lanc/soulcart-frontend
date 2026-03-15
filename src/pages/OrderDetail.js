@@ -10,7 +10,7 @@ function OrderDetail() {
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/orders/${orderId}/`, {
+    axios.get(`https://soulcart.onrender.com/api/orders/${orderId}/`, {
       headers: { Authorization: `Token ${token}` }
     }).then(res => setOrder(res.data))
       .catch(err => console.log(err));

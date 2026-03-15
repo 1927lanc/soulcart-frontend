@@ -18,7 +18,7 @@ function Login() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/users/login/', form);
+      const res = await axios.post('https://soulcart.onrender.com/api/users/login/', form);
       login(res.data.user, res.data.token);
       navigate('/');
     } catch (err) {

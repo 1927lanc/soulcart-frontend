@@ -17,14 +17,14 @@ function Wishlist() {
   }, [user]);
 
   const fetchWishlist = () => {
-    axios.get('http://127.0.0.1:8000/api/users/wishlist/', {
+    axios.get('https://soulcart.onrender.com/api/users/wishlist/', {
       headers: { Authorization: `Token ${token}` }
     }).then(res => { setWishlist(res.data); setLoading(false); })
       .catch(() => setLoading(false));
   };
 
   const removeFromWishlist = async (productId) => {
-    await axios.post('http://127.0.0.1:8000/api/users/wishlist/',
+    await axios.post('https://soulcart.onrender.com/api/users/wishlist/',
       { product_id: productId },
       { headers: { Authorization: `Token ${token}` } }
     );
@@ -51,7 +51,7 @@ function Wishlist() {
             <div key={product.id} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
               <div style={{ position: 'relative', cursor: 'pointer' }} onClick={() => navigate(`/products/${product.slug}`)}>
                 {product.image
-                  ? <img src={`http://127.0.0.1:8000${product.image}`} alt={product.name} style={{ width: '100%', aspectRatio: '1', objectFit: 'cover' }} />
+                  ? <img src={`https://soulcart.onrender.com${product.image}`} alt={product.name} style={{ width: '100%', aspectRatio: '1', objectFit: 'cover' }} />
                   : <div style={{ width: '100%', aspectRatio: '1', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#aaa' }}>No Image</div>
                 }
                 <button onClick={e => { e.stopPropagation(); removeFromWishlist(product.id); }}

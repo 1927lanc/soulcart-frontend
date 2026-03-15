@@ -32,7 +32,7 @@ function Register() {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/users/register/', {
+      const res = await axios.post('https://soulcart.onrender.com/api/users/register/', {
         username: form.username,
         email: form.email,
         phone: form.phone,

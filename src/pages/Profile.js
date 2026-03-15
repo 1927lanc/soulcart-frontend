@@ -11,7 +11,7 @@ function Profile() {
 
   useEffect(() => {
     if (!user) { navigate('/login'); return; }
-    axios.get('http://127.0.0.1:8000/api/orders/', {
+    axios.get('https://soulcart.onrender.com/api/orders/', {
       headers: { Authorization: `Token ${token}` }
     }).then(res => { setOrders(res.data); setLoading(false); })
       .catch(() => setLoading(false));
